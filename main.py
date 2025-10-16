@@ -10,7 +10,7 @@ API_KEY = os.getenv("OPENWEATHER_API_KEY")
 print("WeatherWake app starting...")
 print(f"Loaded API Key: {'FOUND' if API_KEY else 'MISSING'}")
 
-# Your main alarm code goes here...
+
 #Weather Wake Python Alarm clock
 
 #GUI Libraries
