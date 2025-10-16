@@ -1,107 +1,112 @@
-# 🌤️ WeatherWake — Weather-Based Python Alarm Clock
+# 🌤️ WeatherWake
 
-WeatherWake is a Python-based alarm clock app that uses **real-time weather data** to customize your wake-up sound.  
-It features a simple **Tkinter GUI**, auto-detects your **current city**, and adjusts the alarm tone based on the **current weather conditions** (e.g., sunny, cloudy, rainy).
+**WeatherWake** is a smart alarm clock built with **Python** and **Tkinter**, designed to help you start your day with real-time weather awareness.  
+When the alarm goes off, it plays a sound that matches the current weather — rain, sun, clouds, or default — so you know what to expect before you even open your eyes.
 
 ---
 
 ## 🚀 Features
-
-- 🕒 Set alarms easily with a user-friendly GUI  
-- 🔊 Plays weather-specific sounds (e.g., rain, sun, clouds, etc.)  
-- ☁️ Automatically detects your city using IP geolocation  
-- 🌦️ Fetches real-time weather from OpenWeatherMap  
-- 🔁 Updates weather before alarm time so it stays accurate  
-- ⏹️ Stop or quit the alarm anytime  
-- 💻 Cross-platform (Windows, macOS, Linux)
+- ⏰ Custom alarm set by user (HH:MM:SS format)
+- 🌎 Automatic location detection via IP
+- ☁️ Real-time weather fetched from **OpenWeatherMap API**
+- 🎵 Weather-based alarm sounds (e.g., rainy, sunny, cloudy)
+- 🔁 Updates weather automatically if conditions change before alarm
+- 🖥️ Simple and responsive **Tkinter GUI**
+- 🧩 Threaded alarm handling — keeps the UI responsive
+- ❌ Manual stop and quit buttons to control the app
 
 ---
 
-## 🧰 Requirements
+## 🧱 Project Structure
+WeatherWake/
+│
+├── main.py # Main Python application
+├── .env # Contains your secret API key (not uploaded to GitHub)
+├── requirements.txt # Project dependencies
+├── README.md # This file
+└── sounds/ # Folder containing your MP3 alarm files
+├── Rainy_alarm_1min.mp3
+├── Sunny_alarm_1min.mp3
+├── Cloudy_alarm_1min.mp3
+└── default_Alarm.mp3
 
-Make sure you have Python 3.8+ installed, then install the required libraries:
 
+---
+
+## 🔐 Environment Variables
+This project uses an `.env` file to store your **OpenWeatherMap API key** securely.
+
+Create a file named `.env` in your project root and add:
+
+API_KEY=your_openweathermap_api_key_here
+
+
+
+> ⚠️ Make sure to add `.env` to your `.gitignore` before uploading to GitHub, so your API key stays private.
+
+---
+
+## 🧰 Installation & Setup
+
+### 1️⃣ Clone the repository
 ```bash
-pip install requests pygame
-```
+git clone https://github.com/your-username/WeatherWake.git
+cd WeatherWake
 
-> `tkinter` comes preinstalled with most Python distributions.
+2️⃣ Create and activate a virtual environment
 
----
+python -m venv venv
+source venv/bin/activate     # Mac/Linux
+venv\Scripts\activate        # Windows
 
-## 🔑 Setup
+3️⃣ Install dependencies
 
-1. Clone or download this repository.  
-2. Open the script in your favorite Python IDE or terminal.  
-3. Replace the example OpenWeatherMap API key in the code:
+pip install -r requirements.txt
 
-```python
-API_KEY = 'YOUR_OPENWEATHERMAP_API_KEY'
-```
 
-4. Run the script:
+4️⃣ Add your API key
+Create a .env file as shown above.
 
-```bash
-python weatherwake.py
-```
+5️⃣ Run the app
 
----
+python main.py
 
-## 🖥️ How It Works
 
-1. On launch, the app checks your **current location and weather**.
-2. Enter a time in the `HH:MM:SS` format.
-3. Click **Set Alarm** — the app starts monitoring the clock.
-4. When the time matches, the app:
-   - Refreshes the current weather
-   - Plays a weather-matched alarm sound
-   - Displays a message box alert
-5. You can click **Stop Alarm** or **Quit App** anytime.
+⚙️ Requirements
+Dependencies are listed in requirements.txt. Example:
 
----
+tk
+pygame
+requests
+python-dotenv
 
-## 🔔 Weather-to-Sound Mapping
 
-| Weather | Sound File |
-|----------|-------------|
-| ☀️ Clear | `Sunny_alarm_1min.mp3` |
-| 🌧️ Rain | `Rainy_alarm_1min.mp3` |
-| ☁️ Clouds | `Cloudy_alarm_1min.mp3` |
-| ❓ Other | `default_Alarm.mp3` |
+🧭 How It Works
+The app detects your city using your IP address.
+It fetches current weather data from the OpenWeatherMap API.
+Depending on the weather (Rain, Clear, Clouds, etc.), it assigns a corresponding MP3 alarm sound.
+The app continually checks for time and weather updates before the alarm triggers.
+When the alarm time matches the system time, your weather-based sound plays.
 
-> You can replace these `.mp3` files with your own — just keep the same filenames or adjust them in the `choose_sound()` function.
+🧩 Contributing
+Contributions are welcome!
 
----
+If you’d like to enhance the project (new features, better sounds, or design improvements):
+Fork the repo
+Create a new branch (feature-name)
+Commit your changes
+Open a Pull Request
 
-## 🧩 Code Overview
+🪪 License
+This project is open source and free for personal or educational use.
+You may modify, distribute, or build upon this project freely with proper credit.
+💡 Future Improvements
+Add volume control and snooze functionality
+Support for multiple alarms
+Display weather forecast (not just current condition)
+Option to choose custom alarm sounds
 
-Main components:
-- `get_location()` → Detects your city via IP geolocation.  
-- `get_weather(city)` → Fetches live weather from OpenWeatherMap.  
-- `choose_sound(weather)` → Picks an alarm sound for the weather.  
-- `set_alarm()` → Runs a timer thread that triggers the alarm at the right time.  
-- `start_alarm()` and `stop_alarm()` → Button callbacks for the GUI.  
 
----
-
-## 🛠️ Future Improvements
-
-- Add live weather toggle (“Recheck weather before alarm rings”)  
-- Custom sound uploads  
-- Multi-alarm scheduling  
-- Dark mode GUI  
-- Desktop notifications
-
----
-
-## 📜 License
-
-This project is open-source and free to use for personal projects.  
-If you share or modify, please give credit to the original author.
-
----
-
-## 👤 Author
-
-**Jacob Clark**  
-💡 Created with Python, caffeine, and a bit of weather magic ☕🌤️  
+🧑‍💻 Author
+Jacob Clark
+Built with Python, caffeine, and curiosity ☕🐍
