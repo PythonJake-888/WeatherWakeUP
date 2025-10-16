@@ -41,6 +41,3 @@ WeatherWake/
 ├── .gitignore
 └── sounds/
 ```
-
-## License
-MIT License (Feel free to modify and share!)
