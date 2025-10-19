@@ -100,6 +100,7 @@ Open a Pull Request
 🪪 License
 This project is open source and free for personal or educational use.
 You may modify, distribute, or build upon this project freely with proper credit.
+
 💡 Future Improvements
 Add volume control and snooze functionality
 Support for multiple alarms
