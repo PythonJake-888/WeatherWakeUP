@@ -1,113 +1,145 @@
-# 🌤️ WeatherWake
+# 🌦️ WeatherWake: Smart Weather-Based Alarm Clock
 
-**WeatherWake** is a smart alarm clock built with **Python** and **Tkinter**, designed to help you start your day with real-time weather awareness.  
-When the alarm goes off, it plays a sound that matches the current weather — rain, sun, clouds, or default — so you know what to expect before you even open your eyes.
-
----
-
-## 🚀 Features
-- ⏰ Custom alarm set by user (HH:MM:SS format)
-- 🌎 Automatic location detection via IP
-- ☁️ Real-time weather fetched from **OpenWeatherMap API**
-- 🎵 Weather-based alarm sounds (e.g., rainy, sunny, cloudy)
-- 🔁 Updates weather automatically if conditions change before alarm
-- 🖥️ Simple and responsive **Tkinter GUI**
-- 🧩 Threaded alarm handling — keeps the UI responsive
-- ❌ Manual stop and quit buttons to control the app
+**WeatherWake** is a Python-based alarm clock that integrates live weather data to wake you up with environment-specific sounds — whether it’s raining, sunny, or cloudy!  
+The app uses your **IP-based location**, fetches the **current weather**, and plays a **customized alarm sound** that matches the forecast.  
 
 ---
 
-## 🧱 Project Structure
+## 📁 Project Structure
+
+```
 WeatherWake/
 │
-├── main.py # Main Python application
-├── .env # Contains your secret API key (not uploaded to GitHub)
-├── requirements.txt # Project dependencies
-├── README.md # This file
-└── sounds/ # Folder containing your MP3 alarm files
-├── Rainy_alarm_1min.mp3
-├── Sunny_alarm_1min.mp3
-├── Cloudy_alarm_1min.mp3
-└── default_Alarm.mp3
-
-
----
-
-## 🔐 Environment Variables
-This project uses an `.env` file to store your **OpenWeatherMap API key** securely.
-
-Create a file named `.env` in your project root and add:
-
-API_KEY=your_openweathermap_api_key_here
-
-
-
-> ⚠️ Make sure to add `.env` to your `.gitignore` before uploading to GitHub, so your API key stays private.
+├── main.py                  # Main application file
+├── .env                     # Hidden file storing your API key (not uploaded)
+├── .gitignore               # Prevents sensitive and unnecessary files from being committed
+├── README.md                # Documentation file
+├── requirements.txt         # Python dependencies
+└── Sounds/
+    ├── Rainy_alarm_1min.mp3
+    ├── Sunny_alarm_1min.mp3
+    ├── Cloudy_alarm_1min.mp3
+    └── default_Alarm.mp3
+```
 
 ---
 
-## 🧰 Installation & Setup
+## ⚙️ Installation and Setup
 
-### 1️⃣ Clone the repository
+### **Step 1: Clone the Repository**
+
 ```bash
-git clone https://github.com/your-username/WeatherWake.git
-cd WeatherWake
+git clone https://github.com/PythonJake-888/WeatherWakeUP.git
+cd WeatherWakeUP
+```
 
-2️⃣ Create and activate a virtual environment
+### **Step 2: Set Up a Virtual Environment**
 
+It’s best to create a virtual environment for your project.
+
+```bash
 python -m venv venv
-source venv/bin/activate     # Mac/Linux
-venv\Scripts\activate        # Windows
+source venv/bin/activate   # (Mac/Linux)
+venv\Scripts\activate      # (Windows)
+```
 
-3️⃣ Install dependencies
+### **Step 3: Install Required Dependencies**
 
+```bash
 pip install -r requirements.txt
+```
 
+### **Step 4: Set Up Your OpenWeather API Key**
 
-4️⃣ Add your API key
-Create a .env file as shown above.
+1. Create a free account at [OpenWeatherMap](https://openweathermap.org/api).  
+2. Generate your **API key**.  
+3. In the project root folder, create a file named `.env` and add your key:
 
-5️⃣ Run the app
+   ```bash
+   OPENWEATHER_API_KEY=your_openweather_api_key_here
+   ```
 
+### **Step 5: Run the App**
+
+```bash
 python main.py
+```
 
+---
 
-⚙️ Requirements
-Dependencies are listed in requirements.txt. Example:
+## 🧩 Requirements
 
-tk
-pygame
-requests
-python-dotenv
+- Python 3.8 or later  
+- Internet connection (for weather updates)
+- The following Python libraries:
+  - `pygame`
+  - `requests`
+  - `python-dotenv`
+  - `tkinter` (included by default with Python)
 
+---
 
-🧭 How It Works
-The app detects your city using your IP address.
-It fetches current weather data from the OpenWeatherMap API.
-Depending on the weather (Rain, Clear, Clouds, etc.), it assigns a corresponding MP3 alarm sound.
-The app continually checks for time and weather updates before the alarm triggers.
-When the alarm time matches the system time, your weather-based sound plays.
+## 💡 How It Works
 
-🧩 Contributing
-Contributions are welcome!
+1. **Weather Detection:** Uses IP geolocation to identify your current city.  
+2. **API Integration:** Fetches weather data from OpenWeatherMap.  
+3. **Dynamic Alarm Sounds:** Plays weather-specific sounds (rain, sun, or clouds).  
+4. **Live Updates:** The app updates weather info hourly in the background.  
+5. **Custom Controls:** You can stop the alarm or quit the app at any time.
 
-If you’d like to enhance the project (new features, better sounds, or design improvements):
-Fork the repo
-Create a new branch (feature-name)
-Commit your changes
-Open a Pull Request
+---
 
-🪪 License
-This project is open source and free for personal or educational use.
-You may modify, distribute, or build upon this project freely with proper credit.
+## 🧠 Features
 
-💡 Future Improvements
-Add volume control and snooze functionality
-Support for multiple alarms
-Display weather forecast (not just current condition)
-Option to choose custom alarm sounds
+- 🎵 Weather-based alarm tones  
+- 🕒 Live clock display  
+- 🌤 Hourly weather updates  
+- 🧭 Automatic location detection  
+- 🧰 Simple and clean Tkinter GUI  
+- 🔐 Hidden API key support via `.env`  
 
+---
 
-🧑‍💻 Author
-Jacob Clark
-Built with Python, caffeine, and curiosity ☕🐍
+## 🔒 API Key Security
+
+Your `.env` file contains your private API key.  
+Make sure it’s **never uploaded** to GitHub by including `.env` in your `.gitignore` file.
+
+Example `.gitignore`:
+```
+.env
+__pycache__/
+*.pyc
+*.mp3
+```
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome!  
+You can:
+- Submit bug reports
+- Suggest new features (e.g., voice alarms, snooze mode)
+- Improve documentation
+
+To contribute:
+1. Fork the repository  
+2. Create a new branch  
+3. Commit your changes  
+4. Open a pull request
+
+---
+
+## 👨‍💻 Author
+
+**Created by:** [Jake Clark (PythonJake-888)](https://github.com/PythonJake-888)  
+*WeatherWake — Bringing weather and wake-ups together.* ☀️🌧️🌙
+
+---
+
+## 🪪 License
+
+This project is licensed under the **MIT License**, meaning it’s open-source and free to modify or distribute with attribution.
+
+---
